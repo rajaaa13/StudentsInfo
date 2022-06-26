@@ -1,0 +1,39 @@
+{
+    "data": [
+    {
+      "id": 1000,
+      "name": "Rajarajan Madesh",
+      "standard" : 1,
+      "section" : "A",
+      "dob" : "13-08-2016"
+    },
+    {
+        "id": 1001,
+        "name": "Bharath Kumar R",
+        "standard" : 2,
+        "section" : "C",
+        "dob" : "13-09-2015"
+      },
+      {
+        "id": 1002,
+        "name": "Gopi Krishna P",
+        "standard" : 4,
+        "section" : "C",
+        "dob" : "12-03-2013"
+      },
+      {
+        "id": 1003,
+        "name": "Dhamini K",
+        "standard" : 1,
+        "section" : "A",
+        "dob" : "05-04-2019"
+      },
+      {
+        "id": 1004,
+        "name": "Jayakrishna M",
+        "standard" : 11,
+        "section" : "A",
+        "dob" : "27-11-2010"
+      }
+    ]
+}

@@ -1,1 +1,67 @@
-<p>students-list works!</p>
+<p-table #dt [columns]="cols" [value]="students" responsiveLayout="scroll">
+    <ng-template pTemplate="caption">
+        <h3 class="flex justify-content-center align-items-center text-center">STUDENTS LIST</h3>
+        <div class="d-flex justify-content-between">
+            <div class="mr-auto">
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear()"></button>
+            </div>
+            <div class="p-input-icon-right mr-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" style="height:100%;" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search keyword" />
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th pSortableColumn="name">
+                <div class="flex justify-content-center align-items-center">
+                    STUDENT NAME
+                    <p-sortIcon field="name"></p-sortIcon>
+                    <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="id">
+                <div class="flex justify-content-center align-items-center">
+                    ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                    <p-columnFilter type="numeric" field="id" display="menu"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="standard">
+                <div class="flex justify-content-center align-items-center">
+                    STANDARD
+                    <p-sortIcon field="standard"></p-sortIcon>
+                    <p-columnFilter type="text" field="standard" display="menu"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="section">
+                <div class="flex justify-content-center align-items-center">
+                    SECTION
+                    <p-sortIcon field="section"></p-sortIcon>
+                    <p-columnFilter type="text" field="section" display="menu"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="dob">
+                <div class="flex justify-content-center align-items-center">
+                    DATE
+                    <p-sortIcon field="dob"></p-sortIcon>
+                    <p-columnFilter type="date" field="dob" display="menu"></p-columnFilter>
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr style="height:30px">
+            <td *ngFor="let col of cols">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td [attr.colspan]="columns.length">
+                No records found
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
