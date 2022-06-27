@@ -1,23 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+//primeng
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+//components & routing modules
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentsListComponent } from './components/students-list/students-list.component';
-import {ButtonModule} from 'primeng/button';
-import { HttpClientModule } from '@angular/common/http';
-import { TableModule } from 'primeng/table';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DatePipe } from '@angular/common';
-
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    StudentsListComponent
-  ],
+  declarations: [AppComponent, LoginComponent, StudentsListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,9 +21,9 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     ButtonModule,
     TableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  providers: [DatePipe],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

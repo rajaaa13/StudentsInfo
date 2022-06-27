@@ -1,14 +1,17 @@
-<h3 class="flex justify-content-center align-items-center text-center">Welcome {{loggedinUser.username | titlecase}} !</h3>
+<h3 class="flex justify-content-center align-items-center text-center">Welcome {{loggedinUser.username | titlecase}} !
+</h3>
 <p-table *ngIf="showTable" #dt [columns]="cols" [value]="students" responsiveLayout="scroll">
     <ng-template pTemplate="caption">
         <h3 class="flex justify-content-center align-items-center text-center">STUDENTS LIST</h3>
         <div class="d-flex justify-content-between">
             <div class="mr-auto">
-                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear()"></button>
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                    (click)="clear()"></button>
             </div>
             <div class="p-input-icon-right mr-auto">
                 <i class="pi pi-search"></i>
-                <input pInputText type="text" style="height:100%;" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search keyword" />
+                <input pInputText type="text" style="height:100%;" (input)="applyFilterGlobal($event, 'contains')"
+                    placeholder="Search keyword" />
             </div>
         </div>
     </ng-template>
@@ -69,7 +72,7 @@
                 {{rowData['dob'] | date : 'dd/MM/yyyy'}}
             </td>
             <td *ngIf="isDefaultDate">
-                {{rowData['dob'] | date : 'MM/dd/yyyy'}}
+                {{rowData['dob'] | date : 'MM-dd-yyyy'}}
             </td>
         </tr>
     </ng-template>
