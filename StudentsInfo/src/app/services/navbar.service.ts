@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NavbarService {
   visible= new BehaviorSubject<boolean>(false);
+  isDefaultDate = new BehaviorSubject<boolean>(true);
 
   constructor() { }
 }

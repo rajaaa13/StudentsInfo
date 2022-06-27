@@ -11,10 +11,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="col-12 navbar-nav flex-row-reverse me-auto mb-2 mb-lg-0">
           <li *ngIf="showActionIcon" class="nav-item">
-            <a class="nav-link" href="/login">Logout</a>
+            <a class="nav-link" (click)="logout()">Logout</a>
           </li>
           <li *ngIf="showActionIcon" class="nav-item">
-            <a class="nav-link" aria-current="page">Toggle</a>
+            <a class="nav-link" (click)="toggleDate()">Toggle</a>
           </li>
         </ul>
       </div>
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse ">
           <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
             <li class="nav-item">
-              <a class="nav-link pl-0 text-nowrap" [class.active] = "showActionIcon" href="/students-info"><i class="fa fa-bullseye fa-fw"></i> <span
+              <a class="nav-link pl-0 text-nowrap" [class.active]="showActionIcon" [class.disabled]="!showActionIcon" href="/students-info"><i class="fa fa-bullseye fa-fw"></i> <span
                   class="font-weight-bold">Students List</span></a>
             </li>
           </ul>

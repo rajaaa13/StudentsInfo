@@ -1,4 +1,5 @@
-<p-table #dt [columns]="cols" [value]="students" responsiveLayout="scroll">
+<h3 class="flex justify-content-center align-items-center text-center">Welcome {{loggedinUser.username | titlecase}} !</h3>
+<p-table *ngIf="showTable" #dt [columns]="cols" [value]="students" responsiveLayout="scroll">
     <ng-template pTemplate="caption">
         <h3 class="flex justify-content-center align-items-center text-center">STUDENTS LIST</h3>
         <div class="d-flex justify-content-between">
@@ -52,8 +53,23 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr style="height:30px">
-            <td *ngFor="let col of cols">
-                {{rowData[col.field]}}
+            <td>
+                {{rowData['name']}}
+            </td>
+            <td>
+                {{rowData['id']}}
+            </td>
+            <td>
+                {{rowData['standard']}}
+            </td>
+            <td>
+                {{rowData['section']}}
+            </td>
+            <td *ngIf="!isDefaultDate">
+                {{rowData['dob'] | date : 'dd/MM/yyyy'}}
+            </td>
+            <td *ngIf="isDefaultDate">
+                {{rowData['dob'] | date : 'MM/dd/yyyy'}}
             </td>
         </tr>
     </ng-template>
