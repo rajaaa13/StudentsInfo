@@ -5,7 +5,6 @@ import { Student } from 'src/app/viewmodels/students';
 import { StudentsinfoService } from 'src/app/services/studentsinfo.service';
 import { UseraccountService } from 'src/app/services/useraccount.service';
 import { User } from 'src/app/viewmodels/User';
-import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({

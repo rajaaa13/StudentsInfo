@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NavbarService } from 'src/app/services/navbar.service';
 import { UseraccountService } from 'src/app/services/useraccount.service';
-import { User } from 'src/app/viewmodels/User';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +16,10 @@ export class LoginComponent implements OnInit {
   //varibales
   loading = false;
   submitted = false;
-  passwordPattern = '^[a-z0-9_-]{8,15}$';
+  passwordPattern = '^[a-z0-9_-]{8,}$';
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     public navbar: NavbarService,
     public useraccountService: UseraccountService
@@ -46,7 +44,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.navbar.visible.next(true);
     //returns on invalid entries
     if (this.loginForm.invalid) {
       return;
@@ -57,6 +54,7 @@ export class LoginComponent implements OnInit {
         (data) => {
           if (data && data.username != null && data.username != '') {
             this.loading = false;
+            this.navbar.visible.next(true);
             this.router.navigate(['/students-info']);
           } else {
             this.loading = false;

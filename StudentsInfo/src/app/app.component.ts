@@ -6,33 +6,37 @@ import { UseraccountService } from './services/useraccount.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit {
   //variables
   title = 'StudentsInfo';
   showActionIcon = false;
   isDefaultDate = true;
 
-  constructor(public navbar: NavbarService,public useraccountService : UseraccountService,private router: Router) {
-  }
+  constructor(
+    public navbar: NavbarService,
+    public useraccountService: UseraccountService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
-    this.navbar.visible.subscribe(
-      data => {this.showActionIcon = data}
-    );
+    this.navbar.visible.subscribe((data) => {
+      this.showActionIcon = data;
+    });
   }
 
-  logout(){
-    this.useraccountService.logout().subscribe(
-      data => {
-        if(data) {this.router.navigate(['/login']);}
+  logout() {
+    this.useraccountService.logout().subscribe((data) => {
+      this.navbar.visible.next(false);
+      if (data) {
+        this.router.navigate(['/login']);
       }
-    )
+    });
   }
 
   //emitting value to toggle date
-  toggleDate(){
-    this.isDefaultDate = !this.isDefaultDate
+  toggleDate() {
+    this.isDefaultDate = !this.isDefaultDate;
     this.navbar.isDefaultDate.next(this.isDefaultDate);
   }
 }
